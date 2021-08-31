@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PGE323M Reservoir Engineering III (Simulation) &#8212; Reservoir Simulation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sim.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Reservoir Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/IntroductionToReservoirSimulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/johnfoster-pge-utexas-edu/reservoir-simulation-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/johnfoster-pge-utexas-edu/reservoir-simulation-book/issues/new?title=Issue%20on%20page%20%2FIntroductionToReservoirSimulation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/johnfoster-pge-utexas-edu/reservoir-simulation-book/main?urlpath=tree/reservoir-simulation/IntroductionToReservoirSimulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   PGE323M Reservoir Engineering III (Simulation)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-reservoir-simulation">
+   What is reservoir simulation?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reservoir-simulators-help-us-answer-several-questions">
+   Reservoir simulators help us answer several questions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeling-and-simulation">
+   Modeling and simulation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#all-steps-in-simulation-are-important">
+   All steps in simulation are important
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-idea">
+   General idea
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-schematic">
+   Simulation schematic
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conservation-law">
+     Conservation law…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-pdes-that-describe-flow-in-porous-media">
+   Solving the PDEs that describe flow in porous media
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complications">
+   Complications
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximations">
+   Approximations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-tools-do-i-need-to-create-my-simulator">
+   What tools do I need to create my simulator?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-can-t-i-just-use-a-commercial-simulator-cmg-eclipse-that-someone-smart-already-made">
+   Why can’t I just use a commercial simulator (CMG, Eclipse) that someone smart already made?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#categories-of-reservoir-simulators">
+   Categories of Reservoir Simulators
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pge323m-reservoir-engineering-iii-simulation">
+<h1>PGE323M Reservoir Engineering III (Simulation)<a class="headerlink" href="#pge323m-reservoir-engineering-iii-simulation" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;images/sim.png&#39;</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/IntroductionToReservoirSimulation_1_0.png" src="_images/IntroductionToReservoirSimulation_1_0.png" />
+</div>
+</div>
+<p>© UNISIM, <a class="reference external" href="https://www.unisim.cepetro.unicamp.br/benchmarks/images/UNISIM_II_R.png">Image Source</a></p>
+</div>
+<div class="section" id="what-is-reservoir-simulation">
+<h1>What is reservoir simulation?<a class="headerlink" href="#what-is-reservoir-simulation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Understand flow and transport in our reservoirs to make engineering decisions</p></li>
+</ul>
+<ul class="simple">
+<li><p>Develop mathematical models to describe pressure, velocity, saturation, etc.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Described by coupled, nonlinear partial differential equations (PDEs)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Solution to PDEs can’t be found analytically – we are left with solving numerically</p></li>
+</ul>
+</div>
+<div class="section" id="reservoir-simulators-help-us-answer-several-questions">
+<h1>Reservoir simulators help us answer several questions<a class="headerlink" href="#reservoir-simulators-help-us-answer-several-questions" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>How should a field be developed to maximize economic recovery?</p></li>
+<li><p>What is the best enhanced recovery scheme for the reservoir?</p></li>
+<li><p>Why is the reservoir not behaving according to predictions made by previous engineering studies?</p></li>
+<li><p>What is the ultimate economic recovery of the field?</p></li>
+<li><p>What type of laboratory data is required?</p></li>
+<li><p>Is it necessary to do physical model studies of the reservoir?</p></li>
+<li><p>What is the best completion scheme for wells?</p></li>
+<li><p>From what portion of the reservoir is the production coming?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tikzmagic
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1673</span><span class="o">/</span><span class="mf">3338368066.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;tikzmagic&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2346</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2347</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2348</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2349</span>             <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">   </span><span class="mi">2350</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/decorator.py</span> in <span class="ni">fun</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>                 <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">232</span>             <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> 
+<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/IPython/core/magics/extension.py</span> in <span class="ni">load_ext</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">module_str</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">raise</span> <span class="n">UsageError</span><span class="p">(</span><span class="s1">&#39;Missing module name.&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">33</span>         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">extension_manager</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> 
+<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s1">&#39;already loaded&#39;</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/IPython/core/extensions.py</span> in <span class="ni">load_extension</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>             <span class="k">if</span> <span class="n">module_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>                 <span class="k">with</span> <span class="n">prepended_to_syspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>                     <span class="n">mod</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>                     <span class="k">if</span> <span class="n">mod</span><span class="o">.</span><span class="vm">__file__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>                         <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;Loading extensions from </span><span class="si">{dir}</span><span class="s2"> is deprecated. &quot;</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/importlib/__init__.py</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>                 <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>             <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">127</span>     <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> 
+<span class="g g-Whitespace">    </span><span class="mi">129</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/importlib/_bootstrap.py</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/importlib/_bootstrap.py</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/importlib/_bootstrap.py</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tikzmagic&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modeling-and-simulation">
+<h1>Modeling and simulation<a class="headerlink" href="#modeling-and-simulation" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> --scale 1.0 --size 500,500 -f png
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,  node distance=3cm, text width=6em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex]
+\node [block] (problem) {Engineering Problem};
+\node [block, below of=problem] (model) {Mathematical Model};
+\node [block, right of=model, node distance=5cm] (numerical) {Numerical Model};
+\node [block, right of=problem, node distance=5cm] (solution) {Engineering Solution};
+\path [line] (problem) -- (model);
+\path [line] (model) -- (numerical);
+\path [line] (numerical) -- (solution);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/IntroductionToReservoirSimulation_11_0.png" src="_images/IntroductionToReservoirSimulation_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="all-steps-in-simulation-are-important">
+<h1>All steps in simulation are important<a class="headerlink" href="#all-steps-in-simulation-are-important" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Conversion to mathematical model requires understanding physics</p>
+<ul>
+<li><p>Fluid and rock properties of the reservoir</p></li>
+<li><p>Laws that describe flow and transport (conservation of mass, energy, and momentum)</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Numerical solution to the mathematical problem requires simplifications and approximations that are still accurate</p></li>
+<li><p>Assume that fluid and rock properties are constant over a control volume</p></li>
+<li><p>Transform non-linear PDEs into linear system of algebraic equations</p></li>
+<li><p>Solve the system of equations</p></li>
+</ul>
+<ul class="simple">
+<li><p>Using the math solution to find an engineering solution requires economics, experience, and good decision-making skills</p></li>
+</ul>
+</div>
+<div class="section" id="general-idea">
+<h1>General idea<a class="headerlink" href="#general-idea" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;images/res_to_block.png&#39;</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/IntroductionToReservoirSimulation_17_0.png" src="_images/IntroductionToReservoirSimulation_17_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Break up the reservoir into individual “blocks”, “grids”, “cells”, or “elements”</p></li>
+</ul>
+<ul class="simple">
+<li><p>Write algebraic equations for pressure, saturation, etc. each block</p></li>
+</ul>
+<ul class="simple">
+<li><p>Each block depends on the adjacent block equations so we get a system of linear equations</p></li>
+</ul>
+<ul class="simple">
+<li><p>Solve the system of equations. More blocks means more accuracy, but longer computation time</p></li>
+</ul>
+</div>
+<div class="section" id="simulation-schematic">
+<h1>Simulation schematic<a class="headerlink" href="#simulation-schematic" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;images/sim_schematic.png&#39;</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/IntroductionToReservoirSimulation_23_0.png" src="_images/IntroductionToReservoirSimulation_23_0.png" />
+</div>
+</div>
+<div class="section" id="conservation-law">
+<h2>Conservation law…<a class="headerlink" href="#conservation-law" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>{Rate In} - {Rate Out} = {Accumulation}</p></li>
+<li><p>For each component (oil, gas, water, energy)</p></li>
+<li><p>For each cell</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="solving-the-pdes-that-describe-flow-in-porous-media">
+<h1>Solving the PDEs that describe flow in porous media<a class="headerlink" href="#solving-the-pdes-that-describe-flow-in-porous-media" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Equations come from a mass balance and implementing Darcy’s law:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\genfrac{}{}{0.75pt}{0}{\partial}{\partial x}\left[\lambda_o \left(\genfrac{}{}{0.75ptpt}{0}{\partial p_o}{\partial x} - \gamma_o \genfrac{}{}{0.75pt}{0}{\partial \bar{z}}{\partial x} \right)\right]  = \genfrac{}{}{0.75pt}{0}{\partial}{\partial t}\left[\genfrac{}{}{0.75pt}{0}{\phi S_o}{B_o}\right] \\
+\genfrac{}{}{0.75pt}{0}{\partial}{\partial x}\left[\lambda_w \left(\genfrac{}{}{0.75pt}{0}{\partial p_w}{\partial x} - \gamma_w \genfrac{}{}{0.75pt}{0}{\partial \bar{z}}{\partial x} \right)\right]  = \genfrac{}{}{0.75pt}{0}{\partial}{\partial t}\left[\genfrac{}{}{0.75pt}{0}{\phi S_w}{B_w}\right]
+\end{split}\]</div>
+</div>
+<div class="section" id="complications">
+<h1>Complications<a class="headerlink" href="#complications" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Coupled equations (water and oil)</p></li>
+<li><p>PDEs (time and space – 1, 2 ,or 3D)</p></li>
+<li><p>Variable properties (like permeability and porosity)</p></li>
+</ul>
+</div>
+<div class="section" id="approximations">
+<h1>Approximations<a class="headerlink" href="#approximations" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+T_1 &amp; -T_{1/2} &amp; &amp; \\
+-T_{1/2} &amp; T_2 &amp; -T_{3/2} &amp; \\
+&amp; -T_{3/2} &amp; T_3 &amp; -T_{5/2} \\
+&amp; &amp; -T_{5/2} &amp; T_4
+\end{bmatrix}
+\left\lbrace
+\begin{matrix}
+P_1 \\ P_2 \\ P_3 \\ P_4
+\end{matrix}
+\right\rbrace
+=
+\left\lbrace
+\begin{matrix}
+Q_1 \\ Q_2 \\ Q_3 \\ Q_4
+\end{matrix}
+\right\rbrace
+\end{split}\]</div>
+</div>
+<div class="section" id="what-tools-do-i-need-to-create-my-simulator">
+<h1>What tools do I need to create my simulator?<a class="headerlink" href="#what-tools-do-i-need-to-create-my-simulator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Write equations for fluid transport in porous media, rock/fluid properties, and conservation of mass, momentum, and energy</p></li>
+</ul>
+<ul class="simple">
+<li><p>Use and perform error analysis of approximate numerical techniques to solve math problems</p>
+<ul>
+<li><p>Root finding</p></li>
+<li><p>Systems of equations</p></li>
+<li><p>Interpolation, Integration, etc.</p></li>
+<li><p>Solution to differential equations</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Develop computer programs to solve these massive numerical problems</p></li>
+</ul>
+</div>
+<div class="section" id="why-can-t-i-just-use-a-commercial-simulator-cmg-eclipse-that-someone-smart-already-made">
+<h1>Why can’t I just use a commercial simulator (CMG, Eclipse) that someone smart already made?<a class="headerlink" href="#why-can-t-i-just-use-a-commercial-simulator-cmg-eclipse-that-someone-smart-already-made" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Great danger in using software if you don’t understand the fundamentals it was built on</p></li>
+</ul>
+<ul class="simple">
+<li><p>Simulators have lots of limitations. They can give very misleading results and only an understanding of the problem and mathematics will help your recognize when they do.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Understanding the math and physics separates you from the technician</p></li>
+</ul>
+<ul class="simple">
+<li><p>Who knows you might be the smart person that creates the next commercial reservoir simulator</p></li>
+</ul>
+</div>
+<div class="section" id="categories-of-reservoir-simulators">
+<h1>Categories of Reservoir Simulators<a class="headerlink" href="#categories-of-reservoir-simulators" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Commercial</p>
+<ul>
+<li><p>CMG</p></li>
+<li><p>Eclipse (Schlumberger)</p></li>
+<li><p>Intersect (Schlumberger + Chevron)</p></li>
+<li><p>Nexus (Halliburton)</p></li>
+</ul>
+</li>
+<li><p>In House</p>
+<ul>
+<li><p>Empower (ExxonMobil)</p></li>
+<li><p>Cheers (Chevron)</p></li>
+<li><p>PSim (ConocoPhillips)</p></li>
+<li><p>MoReS – (Shell)</p></li>
+<li><p>Powers – (Saudi)</p></li>
+</ul>
+</li>
+<li><p>Academic</p>
+<ul>
+<li><p>UT-CHEM (UT Chemical Flooding)</p></li>
+<li><p>IPARS (UT Multiscale Simulation)</p></li>
+<li><p>GPAS (UT compositional)</p></li>
+<li><p>TOUGH2 (Lawrence Berkley National Labs)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John T. Foster<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
